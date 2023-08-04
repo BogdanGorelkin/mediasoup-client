@@ -333,7 +333,7 @@ export class ReactNative extends HandlerInterface
 		}
 
 		this._sendStream.addTrack(track);
-		this._pc.addStream(this._sendStream);
+		this._pc.addTrack(this._sendStream);
 
 		let offer = await this._pc.createOffer();
 		let localSdpObject = sdpTransform.parse(offer.sdp);
@@ -467,7 +467,7 @@ export class ReactNative extends HandlerInterface
 
 		this._mapSendLocalIdTrack.delete(localId);
 		this._sendStream.removeTrack(track);
-		this._pc.addStream(this._sendStream);
+		this._pc.addTrack(this._sendStream);
 
 		const offer = await this._pc.createOffer();
 
